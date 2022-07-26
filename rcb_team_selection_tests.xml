@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RCB Team Selection Test_Suite" verbose="2" parallel="classes" thread-count="1">
+	<parameter name="runParallel" value="true" />
+
+	<test name="RCB Team Selection Tests">
+		<groups>
+			<run>
+				<include name="Smoke_Test" />
+			</run>
+		</groups>
+		<classes>
+			<class name="team.rcb.qa.RCBTeamSelectionTests" />
+
+		</classes>
+	</test>
+</suite>
