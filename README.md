@@ -1,6 +1,8 @@
 # RCBTeam
 
-Test cases for selecting a team of RCB for IPL matches Steps to run tests
+Test cases for selecting a team of RCB for IPL matches 
+
+Steps to run tests
 
 Go to Project folder and run below command
 mvn clean test
