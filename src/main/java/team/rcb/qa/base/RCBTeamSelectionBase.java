@@ -73,4 +73,48 @@ public class RCBTeamSelectionBase {
 		return count;
 	}
 
+	public double getTotalPriceforForeignPlayers() {
+		
+		double amount=0;
+		
+		try {
+			JsonObject teamRCBData = new ReadJsonData().readJsonElementInOrder("rcbTeamData.json");
+
+			JsonArray playersDetails = teamRCBData.getAsJsonArray("player");
+			for (int i = 0; i < playersDetails.size(); i++) {
+
+				JsonObject obj = playersDetails.get(i).getAsJsonObject();
+				
+
+				if (!(obj.get("country").getAsString().trim().equalsIgnoreCase("India"))) {
+					amount += obj.get("price-in-crores").getAsDouble();
+				}
+
+			}
+
+		} catch (JsonIOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonSyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Total Price for Foreign Players: "+ amount);
+		return amount;
+	}
+	
+	
+	
+//	public WebElement identifyElement(String id) {
+//		
+//		try {
+//			
+//		WebDriverWait wait = new WebDriverWait(time.UNIT.inSECONDS, 30);
+//		wait.until(ExpectedConditions(isDisplayed(),driver.findElementById(id)))
+//		
+//		}
+//	}
 }

@@ -25,11 +25,11 @@ public class RCBTeamSelectionTests {
 	/**
 	 * Method to Initialize Browser and Login to Application
 	 */
-	@BeforeClass(alwaysRun = true)
-	@Parameters({ "runParallel" })
-	public void setUp(String runParallel) throws Exception, IOException {
-
-	}
+//	@BeforeClass(alwaysRun = true)
+//	@Parameters({ "runParallel" })
+//	public void setUp(String runParallel) throws Exception, IOException {
+//
+//	}
 
 	/**
 	 * Method to test no of foreign players are not more than 4 members in a given
@@ -40,29 +40,33 @@ public class RCBTeamSelectionTests {
 	public void verifyNumberofForeignPlayer() throws Exception {
 		try {
 			int foreignPlayersCount = rcbTeamBase.getForeignPlayersCount();
+			double totalAmountforForeignPlayer = rcbTeamBase.getTotalPriceforForeignPlayers();
+			
+			//System.out.println("Total Price for Foreign Players: "+ totalAmountforForeignPlayer);
 
 			if (foreignPlayersCount <= 4) {
-				System.out.println("Hurray!! Ee Sala Cup Namde ");
-				Assert.assertTrue(true, "No of foreign players " + foreignPlayersCount);
+				System.out.println("Total Price for Foreign Players: "+ totalAmountforForeignPlayer);
+				System.out.println("Hurray!!!!! Ee Sala Cup Namde ");
+				Assert.assertTrue(true, "No of foreign players " + totalAmountforForeignPlayer);
 			} else {
-				Assert.assertTrue(false, "No of foreign players " + foreignPlayersCount);
+				Assert.assertTrue(false, "No of foreign players " + totalAmountforForeignPlayer);
 			}
 		} catch (Exception e) {
 
 		}
 	}
 
-	@Test(description = "Verify Number of Foreign Player are not more than 4", groups = {
+	@Test(description = "Verify team has atleast one wicket keeper", groups = {
 			"Smoke_Test" }, testName = "Select Team-1.2")
 	public void verifyNumberofKeepingPlayer() throws Exception {
 		try {
 			int wicketKeeperCount = rcbTeamBase.getWicketKeeperCount();
 
 			if (wicketKeeperCount >= 1) {
-				System.out.println("Hurray!! Ee Sala Cup Namde ");
-				Assert.assertTrue(true, "No of foreign players " + wicketKeeperCount);
+				System.out.println("Hurray!!-------- Ee Sala Cup Namde ");
+				Assert.assertTrue(true, "No of Keeping players " + wicketKeeperCount);
 			} else {
-				Assert.assertTrue(false, "No of foreign players " + wicketKeeperCount);
+				Assert.assertTrue(false, "No of Keeping players " + wicketKeeperCount);
 			}
 		} catch (Exception e) {
 
